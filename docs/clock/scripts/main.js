@@ -1,5 +1,9 @@
 import { default as dat } from "./dat.gui.module.js";
 
+const stats = new Stats();
+stats.showPanel( 0 ); // 0: fps, 1: ms, 2: mb, 3+: custom
+document.body.appendChild( stats.dom );
+
 // Color Structure
 var blob = {
   seed: 3,
@@ -131,6 +135,8 @@ gui.close();
 var vertices;
 
 function update() {
+	stats.begin();
+
   PRNG.setSeed(blob.seed);
 
   var r, a, v, o;
@@ -176,6 +182,8 @@ function update() {
     ctx.globalAlpha = (1 - i/m) * .1;
     yolo(vertices, i, size, size);
   }
+
+  stats.end();
   requestAnimationFrame(update);
 }
 
