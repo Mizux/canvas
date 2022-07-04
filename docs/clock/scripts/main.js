@@ -10,8 +10,8 @@ var blob = {
   fg: "#FFF",
   stroke: "#FFF",
   bg: "#000",
-  count: 20,
-  spawn: 40,
+  count: 50,
+  spawn: 50,
   offset: 100,
   fills: 0.95,
 };
